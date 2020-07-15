@@ -1,5 +1,6 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'newVersion.dart';
 import 'stepper.dart';
 
 Offset _offset = Offset.zero; // changed
@@ -21,6 +22,24 @@ class _SwipeState extends State<SwipeFinal> {
         body: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
+            Padding(
+              padding: const EdgeInsets.only(top: 50.0, bottom: 30),
+              child: Container(
+                child: Swipper(
+                  // todo: add the call and reject methods
+                  acceptMethod: () {
+                    setState(() {
+                      accept = 'accept';
+                    });
+                  },
+                  rejectMethod: () {
+                    setState(() {
+                      accept = 'Declined';
+                    });
+                  },
+                ),
+              ),
+            ),
             Center(
                 child: Container(
               height: 96,
